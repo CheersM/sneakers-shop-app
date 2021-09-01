@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import AppContext from './context';
 import Orders from './pages/Orders';
+import Slider from './component/Slider';
+import Footer from './component/Footer';
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -122,8 +124,10 @@ function App() {
           onRemove={onRemoveItem}
           opened={cartOpen}
         />
+
         <Header onClickCart={() => setCartOpen(true)} />
         <Route path="/" exact>
+          <Slider />
           <Home
             items={items}
             cartItems={cartItems}
@@ -142,9 +146,7 @@ function App() {
         <Route path="/orders" exact>
           <Orders />
         </Route>
-        <div className="footer">
-          <p>footer</p>
-        </div>
+        <Footer />
       </div>
     </AppContext.Provider>
   );
